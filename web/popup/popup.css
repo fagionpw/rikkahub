@@ -1,0 +1,128 @@
+:root {
+    color-scheme: light dark;
+    font-family: "Inter", "Segoe UI", system-ui, -apple-system, sans-serif;
+    --popup-width: 420px;
+    --popup-radius: 16px;
+    --surface: color-mix(in srgb, Canvas 90%, #ffffff);
+    --surface-dark: color-mix(in srgb, CanvasText 12%, #1f1f1f);
+    --border: color-mix(in srgb, CanvasText 14%, #9aa0a6);
+    --primary: #4285f4;
+    --primary-dark: #1a73e8;
+    --danger: #d93025;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    background: radial-gradient(circle at 0 0, #f3f8ff, #eef1f5);
+    color: CanvasText;
+}
+
+.page-header {
+    padding: 3rem 10vw 1.5rem;
+    text-align: center;
+}
+
+.page-header h1 {
+    margin-bottom: 0.5rem;
+    font-size: clamp(1.8rem, 4vw, 3rem);
+}
+
+.page-header p {
+    margin: 0 auto;
+    max-width: 600px;
+    color: color-mix(in srgb, CanvasText 75%, transparent);
+}
+
+.demo-content {
+    display: grid;
+    gap: 2rem;
+    padding: 0 10vw 6rem;
+}
+
+.demo-content article {
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 24px;
+    padding: 2rem;
+    box-shadow: 0 20px 60px rgba(15, 23, 42, 0.08);
+    backdrop-filter: blur(18px);
+}
+
+.demo-content button {
+    justify-self: center;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 999px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    color: white;
+    background: linear-gradient(135deg, var(--primary), #7b4dff);
+    box-shadow: 0 14px 30px rgba(66, 133, 244, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.demo-content button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 34px rgba(66, 133, 244, 0.4);
+}
+
+.context-menu {
+    position: fixed;
+    z-index: 9999;
+    background: var(--surface);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+    box-shadow: 0 12px 40px rgba(15, 23, 42, 0.2);
+    padding: 0.25rem;
+    animation: fade-in 120ms ease-out;
+}
+
+.context-menu button {
+    display: block;
+    width: 100%;
+    padding: 0.6rem 1.25rem;
+    font: inherit;
+    color: inherit;
+    background: transparent;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.context-menu button:hover {
+    background: color-mix(in srgb, var(--primary) 12%, transparent);
+}
+
+assistant-popup {
+    position: fixed;
+    inset: auto auto 24px 24px;
+    z-index: 9998;
+    display: block;
+    min-width: var(--popup-width);
+    max-width: calc(100vw - 48px);
+    color: inherit;
+}
+
+assistant-popup[hidden] {
+    display: none !important;
+}
+
+@media (max-width: 520px) {
+    assistant-popup {
+        inset: 12px;
+        max-width: none;
+    }
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

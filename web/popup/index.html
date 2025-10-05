@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Assistant Context Menu Demo</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header class="page-header">
+      <h1>Assistant Context Menu &amp; Popup</h1>
+      <p>
+        Select any text on this page, open the context menu, and choose
+        <strong>Send to assistant</strong> to open the popup interface.
+      </p>
+    </header>
+    <main class="demo-content">
+      <article>
+        <h2>Demo Article</h2>
+        <p>
+          This sandbox shows how a Google Translate style context menu entry can
+          forward selected text into a floating assistant widget. The popup
+          mirrors the Google Search widget layout, consolidating assistant
+          selection, freeform text entry, voice capture, and image capture inside
+          a single interface. Responses from the assistant appear directly below
+          the input area so the conversation stays focused.
+        </p>
+        <p>
+          Try highlighting this paragraph, open the context menu, and choose the
+          assistant option. You can also open the popup manually with the button
+          below for quick testing.
+        </p>
+      </article>
+      <button id="open-popup" type="button">Open Assistant Popup</button>
+    </main>
+
+    <div id="assistant-context-menu" class="context-menu" hidden>
+      <button type="button" data-action="open-popup">Send to assistant</button>
+    </div>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
